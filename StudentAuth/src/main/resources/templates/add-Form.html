@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Of Students</title>
+</head>
+<body>
+    <h1>Students</h1>
+
+    <!--SearchBar-->
+    <form id="searchform" method="get" th:action = "@{students/search}">
+        <input type="text" id="searchId" name="id" placeholder="Enter First or Last Name for Search">
+        <button type="submit">Search</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Course</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each = "student : ${students}">
+                <td th:text = "${student.Id}"></td>
+                <td th:text = "${student.fname}"></td>
+                <td th:text = "${student.lname}"></td>
+                <td th:text = "${student.course}"></td>
+                <td th:text = "${student.country}"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>
